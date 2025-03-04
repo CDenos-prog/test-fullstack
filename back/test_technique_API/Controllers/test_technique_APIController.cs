@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using test_technique_API.Models;
+using test_technique_API.Models.DTO;
 using test_technique_API.Services;
 
 namespace test_technique_API.Controllers
@@ -118,6 +119,11 @@ namespace test_technique_API.Controllers
         [HttpGet("all_people")]
         public async Task<ActionResult<List<test_technique_APIPeople>>> GetPeople(){
             return await _peopleService.GetPeople();
+        }
+
+        [HttpPost("save_people")]
+        public async Task<ActionResult<test_technique_APIPeople>> SavePeople(test_technique_APIPeople_DTO people_DTO){
+            return await _peopleService.AddPeople(people_DTO);
         }
     }
 }

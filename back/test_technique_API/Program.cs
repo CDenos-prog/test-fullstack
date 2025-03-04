@@ -13,6 +13,7 @@ builder.Services.AddDbContext<test_technique_APIContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IPeopleService, PeopleService>();
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 
