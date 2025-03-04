@@ -121,9 +121,19 @@ namespace test_technique_API.Controllers
             return await _peopleService.GetPeople();
         }
 
+        [HttpGet("people_by_id")]
+        public async Task<ActionResult<List<test_technique_APIPeople>>> GetPeopleById(int Id){
+            return await _peopleService.GetPeopleById(Id);
+        }
+
         [HttpPost("save_people")]
         public async Task<ActionResult<test_technique_APIPeople>> SavePeople(test_technique_APIPeople_DTO people_DTO){
             return await _peopleService.AddPeople(people_DTO);
+        }
+
+        [HttpPost("save_job")]
+        public async Task<ActionResult<test_technique_APIWorked_at>> AddJobToPeople(test_technique_APIWorked_At_DTO jobsToAdd_DTO){
+            return await _peopleService.AddJob(jobsToAdd_DTO);
         }
     }
 }
